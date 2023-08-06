@@ -1,0 +1,23 @@
+
+python3 -m PyInstaller tetris.py -n Tetris --clean -y -w \
+--target-architecture x86_64 \
+--workpath build \
+--distpath dist \
+--add-data "tetris.png:." \
+--add-data "tetris.mp3:." \
+--add-data "modern-tetris.ttf:." \
+--add-data "tetris_icon.png:." \
+--add-data "brick_*.png:." \
+--icon tetris_icon.icns
+
+rm dist/*.dmg
+
+create-dmg/create-dmg --volname Tetris \
+--volicon tetris_icon.icns \
+--background tetris_dmg.png \
+--icon Tetris.app 90 120 \
+--app-drop-link 310 120 \
+--icon-size 64 \
+--text-size 12 \
+--window-size 408 268 \
+dist/Tetris.dmg dist/Tetris.app
