@@ -1,6 +1,6 @@
 
 python3 -m PyInstaller tetris.py -n Tetris --clean -y -w \
---target-architecture x86_64 \
+--target-architecture arm64 \
 --workpath build \
 --distpath dist \
 --add-data "tetris.png:." \
